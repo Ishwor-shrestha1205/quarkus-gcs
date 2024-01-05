@@ -1,0 +1,30 @@
+steps:
+- name: 'gradle'
+  entrypoint: 'gradle'
+  args: [
+    'wrapper',
+    'build',
+    '-Dquarkus.package.type=jar',
+    # '-Dquarkus.package.type=native-sources',
+    # '-Dquarkus.native.remote-container-build=true',
+    # '-Dquarkus.native.container-runtime=docker',
+    # '-Dquarkus.native.builder-image=graalvm',
+  ]
+- name: 'bash'
+  args: ["-c", "echo Gradle build completed"]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build', 
+    '-f', 
+    'src/main/docker/Dockerfile.jvm', 
+    '-t', 
+    'asia-northeast1-docker.pkg.dev/$PROJECT_ID/quarkus/quarkus-gcs:latest',
+    '.'
+  ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'push', 
+    'asia-northeast1-docker.pkg.dev/$PROJECT_ID/quarkus/quarkus-gcs:latest'
+  ]
+images:
+  - "asia-northeast1-docker.pkg.dev/$PROJECT_ID/quarkus/quarkus-gcs"
