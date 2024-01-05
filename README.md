@@ -59,3 +59,10 @@ If you want to learn more about building native executables, please consult http
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+## Getting notifications in your local terminal from Pub/Sub topic subscription :
+Run your Quarkus application, 
+```shell script
+./gradlew quarkusDev
+```
+And when you access the http://localhost:8080/subscribe/start endpoint, it will start the Pub/Sub subscriber, which will listen to messages from the specified Pub/Sub topic subscription and process them.
