@@ -66,3 +66,9 @@ Run your Quarkus application,
 ./gradlew quarkusDev
 ```
 And when you access the http://localhost:8080/subscribe/start endpoint, it will start the Pub/Sub subscriber, which will listen to messages from the specified Pub/Sub topic subscription and process them.
+
+### Related description for docker image and google cloud settings.
+https://retailai.atlassian.net/wiki/spaces/~606d5c633e6ea000685b5ab2/pages/2706736514/Running+Quarkus+Application+using+Kotlin+in+Docker+and+GCloud
+
+### Related description for getting log in local environment using pub/sub.
+https://retailai.atlassian.net/wiki/spaces/~606d5c633e6ea000685b5ab2/pages/2706736539/Pub+Sub+to+get+log+of+cloud+storage+in+local+machine
